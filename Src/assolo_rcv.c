@@ -200,7 +200,7 @@ int no_chirps_recd=0;
   char instbw_remote[PARAMARRAY_SIZE];
   char *params;
 
-  char *argv_array[20];/*store an array of pointers to the parameters*/
+  char *argv_array[50];/*store an array of pointers to the parameters*/
   int flag_on_recv;
 
   int argc_val=0;

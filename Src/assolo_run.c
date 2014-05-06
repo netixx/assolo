@@ -55,7 +55,6 @@ the experiment fromt the receiver module and writes these to a file.
 #include <arpa/inet.h>
 #include "assolo_run.h"
 
-#define PARAMARRAY_SIZE 300
 FILE *fd_instbw;/* file pointers for output files*/
 FILE *fd_debug;/* file pointers for debug files*/
 
@@ -711,9 +710,8 @@ void connect_to_rcv(int argc,char **argv_ptr)
        	strcat(data_snd,*argv_ptr);
        	num_args++;
     }
-
-
-	if (write(sotcp,data_snd,PARAMARRAY_SIZE) < 0)
+    strcat(data_snd, "\0");
+	if (write(sotcp, data_snd, strlen(data_snd) + 1) < 0)
 	{
 		perror("assolo_rcv_tcp: write");
 		exit(1);
